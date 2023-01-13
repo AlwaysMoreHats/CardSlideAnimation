@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                background: repeating-linear-gradient(
+                    -60deg,
+                    #CCC,
+                    #CCC 14px,
+                    #BBB 14px,
+                    #BBB 15px
+                );
+                margin: 0;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .container {
+                position: relative;
+                display: inline-flex;
+            }
+
+            .panel {
+                box-sizing: border-box;
+                position: relative;
+                background-color: white;
+                height: 400px;
+                width: 500px;
+                padding: 30px;
+                border-width: 2px;
+                border-style: solid;
+                border-color: rgba(70, 130, 180, 0);
+            }
+
+            .btn-primary {
+                background-color: dodgerblue;
+                border-color: steelblue;
+                border-radius: 5px;
+                border-style: solid;
+                border-width: 1px;
+                box-shadow: none;
+                color: white;
+                font-weight: bold;
+                padding: 5px 20px;
+            }
+
+            .panel-left {
+                z-index: 1;
+                margin-right: 0;
+                transition-property: margin-right, border-color, box-shadow;
+                transition-duration: 800ms, 300ms, 300ms;
+                transition-timing-function: ease-in-out;
+                transition-delay: 100ms, 900ms, 900ms;
+            }
+
+            .panel-right {
+                transition-property: margin-right, border-color, box-shadow;
+                transition-duration: 800ms, 300ms, 300ms;
+                transition-timing-function: ease-in-out;
+                transition-delay: 400ms, 0, 0;
+            }
+
+            .main {
+                display: block;
+                border-color: rgba(70, 130, 180, 1.0);
+                box-shadow: 0px 5px 10px #AAA;
+                transition-delay: 400ms, 0, 0;
+            }
+
+            .main.panel-left {
+                margin-right: -500px;
+                border-color: rgba(70, 130, 180, 1.0);
+                transition-delay: 100ms, 900ms, 000ms;
+            }
+
+            .main.panel-right {
+                transition-delay: 100ms, 900ms, 900ms;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script>
+            function openPanel() {
+                $('.panel-left').removeClass('main')
+                $('.panel-right').addClass('main')
+            }
+            function closePanel() {
+                console.log('close')
+                $('.panel-right').removeClass('main')
+                $('.panel-left').addClass('main')
+            }
+        </script>
+    </head>
+    <body>
+            <div class="panel panel-left main">
+                <p>
+                    Ornare aenean rutrum porttitor cursus porttitor convallis integer dis? Adipiscing consequat ac sed quis vivamus. Amet nunc primis pharetra at enim risus habitasse lacus fringilla. Suspendisse convallis vivamus a aptent dapibus venenatis nascetur venenatis dolor sapien amet dictum! Tincidunt quam posuere cursus odio quisque mollis porta potenti vestibulum. Feugiat, amet risus varius.
+                </p>
+                <button class="btn-primary" onClick="openPanel()">Open</button>
+            </div>
+            <div class="panel panel-right">
+                <p>
+                    Justo mattis fusce laoreet suscipit ornare facilisis. Montes tortor quisque posuere at vel facilisis elementum leo. Nullam auctor posuere in pulvinar diam magna interdum. Faucibus fames faucibus inceptos mi. Class senectus, habitant et. Lacus hac vivamus metus blandit taciti. Himenaeos primis porttitor lacinia. Ullamcorper ante ridiculus nisi dictumst mus class primis. Nulla, vestibulum nec maecenas habitasse penatibus proin a. Scelerisque egestas cursus mollis at sem leo commodo metus curabitur pharetra nulla. Molestie dictumst ac non inceptos.
+                </p>
+                <button class="btn-primary" onClick="closePanel()">Close</button>
+            </div>
+    </body>
+</html>
